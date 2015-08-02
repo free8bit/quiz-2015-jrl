@@ -17,6 +17,9 @@ module.exports = function (sequelize, DataTypes) {
                     msg: "-> Falta Respuesta"
                 }
             }
+        },
+        tematica: {
+            type: DataTypes.STRING
         }
     });
 }
