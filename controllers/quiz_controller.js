@@ -96,18 +96,29 @@ exports.update = function (req, res) {
     req.quiz.pregunta = req.body.quiz.pregunta;
     req.quiz.respuesta = req.body.quiz.respuesta;
 
-    req.quiz.validate().then(function(err){
+    req.quiz.validate().then(function (err) {
         if (err) {
             res.render('quizes/edit', {
                 quiz: req.quiz,
                 errors: err.errors
             });
         } else {
-            req.quiz.save( { // Save guarda capos pregunta y respuesta en DB
+            req.quiz.save({ // Save guarda capos pregunta y respuesta en DB
                 fields: ['pregunta', 'respuesta']
-            }).then(function(){
+            }).then(function () {
                 res.redirect('/quizes');
             }); // Redireccion HTTP a lista de preguntas (URL relativo)
+        }
+    });
+};
+
+// DELETE /quizes/:id
+exports.destroy = function (req, res) {
+    req.quiz.destroy().then(function () {
+        res.redirect('/quizes');
+    }).catch(function (error) {
+        {
+            next(error)
         }
     });
 };
