@@ -1,4 +1,18 @@
 <table>
+    <tr>
+        <td>
+            Buscador:
+        </td>
+        <td>
+            <form method="get" action="/quizes?">
+                <input type="text" name="search"/>
+                <input type="submit" value="Enviar">
+            </form>
+        </td>
+    </tr>
+</table>
+<br>
+<table>
     <% var i; for (i=0; i < quizes.length; i++) { %>
         <tr>
             <td>
@@ -24,6 +38,7 @@
         </tr>
         <% } %>
 </table>
+<br>
 <p>
     <a href="/quizes/new">
         <button type="button">Crear pregunta</button>
