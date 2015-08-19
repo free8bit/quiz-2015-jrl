@@ -27,8 +27,8 @@ exports.load = function (req, res, next, quizId) {
 exports.index = function (req, res) {
     var search = req.query.search;
     if (search != "") {
-        search.toLowerCase;
-        search.replace(/ /g, '%');
+        search = search.toLowerCase();
+        search = search.replace(/ /g, '%');
         search += "%";
         search = "%" + search;
     }
